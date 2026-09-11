@@ -1,0 +1,18 @@
+# Hugo output
+/public/
+/resources/_gen/
+/hugo_stats.json
+
+# Local tooling and preview state
+/.tools/
+/.sites-runtime/
+/.hugo_build.lock
+/.hugo_cache/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.tmp

@@ -1,0 +1,16 @@
+{{ define "main" }}
+<header class="page-intro"><p class="eyebrow">Directory</p><h1>{{ .Title }}</h1><p>Explore writing by subject.</p></header>
+<section class="primary-topics" aria-labelledby="primary-subjects"><h2 id="primary-subjects">Primary subjects</h2><ul>
+  {{ range $slug, $topic := hugo.Data.topics }}{{ if $topic.primary }}{{ with site.GetPage (printf "/topics/%s" $slug) }}<li><a href="{{ .RelPermalink }}">{{ $topic.title }}</a><span>{{ len (where .Pages "Section" "articles") }}</span></li>{{ end }}{{ end }}{{ end }}
+</ul></section>
+<section class="all-topics" aria-labelledby="all-topics"><h2 id="all-topics">All topics</h2>
+  {{ $terms := .Data.Terms.Alphabetical }}
+  {{ $letters := slice }}
+  {{ range $terms }}{{ $letter := upper (substr .Name 0 1) }}{{ if not (in $letters $letter) }}{{ $letters = $letters | append $letter }}{{ end }}{{ end }}
+  <div class="topic-directory">
+  {{ range sort $letters }}{{ $letter := . }}<section class="topic-letter"><h3>{{ $letter }}</h3><ul>
+    {{ range $terms }}{{ if eq (upper (substr .Name 0 1)) $letter }}{{ with site.GetPage (printf "/topics/%s" (.Name | urlize)) }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a><span>{{ len (where .Pages "Section" "articles") }}</span></li>{{ end }}{{ end }}{{ end }}
+  </ul></section>{{ end }}
+  </div>
+</section>
+{{ end }}

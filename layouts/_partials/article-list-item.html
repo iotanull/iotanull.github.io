@@ -1,0 +1,10 @@
+<article class="writing-item">
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{ with .Description }}<p class="writing-summary">{{ . }}</p>{{ end }}
+  <p class="item-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+    <span aria-hidden="true">·</span> {{ .ReadingTime }} min read
+    <span aria-hidden="true">·</span> {{ .Params.articleType | default "article" | title }}
+    {{ with first 1 (.GetTerms "topics") }}<span aria-hidden="true">·</span> <a href="{{ (index . 0).RelPermalink }}">{{ (index . 0).LinkTitle }}</a>{{ end }}
+  </p>
+</article>

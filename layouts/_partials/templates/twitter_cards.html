@@ -1,0 +1,11 @@
+{{- $imageURL := "" -}}
+{{- if reflect.IsMap .Params.cover -}}
+  {{- with .Params.cover.image }}{{ $imageURL = . | absURL }}{{ end -}}
+{{- else if and (eq .Section "books") .Params.cover -}}
+  {{- with .Resources.GetMatch .Params.cover }}{{ $imageURL = .Permalink }}{{ end -}}
+{{- end -}}
+{{- if not $imageURL }}{{ with site.Params.socialImage }}{{ $imageURL = . | absURL }}{{ end }}{{ end -}}
+<meta name="twitter:card" content="{{ if $imageURL }}summary_large_image{{ else }}summary{{ end }}">
+{{- with $imageURL }}<meta name="twitter:image" content="{{ . }}">{{ end }}
+<meta name="twitter:title" content="{{ .Title | default site.Title }}">
+<meta name="twitter:description" content="{{ (.Description | default .Summary | default site.Params.description) | plainify | htmlUnescape }}">

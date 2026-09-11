@@ -1,0 +1,11 @@
+{{- $src := .Get "src" -}}{{- $alt := .Get "alt" -}}{{- $caption := .Get "caption" -}}{{- $credit := .Get "credit" -}}
+<figure class="wide-figure">
+  {{ if $src }}
+    {{ if not $alt }}{{ errorf "widefigure shortcode requires alt text for %s" .Page.File.Path }}{{ end }}
+    {{ $image := .Page.Resources.GetMatch $src }}
+    {{ with $image }}<img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">{{ else }}<img src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy">{{ end }}
+  {{ else }}
+    <div class="media-placeholder" role="img" aria-label="{{ $alt }}"><span>Diagram placeholder</span></div>
+  {{ end }}
+  {{ if or $caption $credit }}<figcaption>{{ with $caption }}{{ . | markdownify }}{{ end }}{{ with $credit }} <span class="figure-credit">{{ . }}</span>{{ end }}</figcaption>{{ end }}
+</figure>

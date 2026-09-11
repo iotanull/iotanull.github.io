@@ -1,0 +1,7 @@
+{{ define "main" }}
+<header class="page-intro"><p class="eyebrow">Chronology</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>
+{{ $pages := where site.RegularPages "Section" "articles" }}{{ $pages = where $pages "Params.articleType" "in" (slice "specialized" "general") }}
+<div class="archive-list">{{ range $pages.ByDate.Reverse.GroupByDate "2006" }}<section class="archive-year" aria-labelledby="year-{{ .Key }}"><h2 id="year-{{ .Key }}">{{ .Key }}</h2>
+  {{ range .Pages.GroupByDate "January" }}<div class="archive-month"><h3>{{ .Key }}</h3><ol>{{ range .Pages }}<li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02" }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a><span>{{ .Params.articleType | title }}</span></li>{{ end }}</ol></div>{{ end }}
+</section>{{ end }}</div>
+{{ end }}

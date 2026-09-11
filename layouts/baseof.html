@@ -1,0 +1,10 @@
+{{- if lt hugo.Version "0.165.0" }}{{ errorf "Hugo 0.165.0 or newer is required" }}{{ end -}}
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en-US" }}" data-theme="auto">
+<head>{{ partial "head.html" . }}</head>
+<body id="top" class="{{ if .IsHome }}home-page{{ else }}{{ .Kind }}-page{{ end }} section-{{ .Section }}">
+  {{ partial "header.html" . }}
+  <main class="main" id="main-content" tabindex="-1">{{ block "main" . }}{{ end }}</main>
+  {{ partial "footer.html" . }}
+</body>
+</html>

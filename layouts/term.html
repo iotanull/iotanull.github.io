@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ $slug := .Data.Term | urlize }}{{ $topic := index hugo.Data.topics $slug }}
+<header class="page-intro topic-intro"><p class="eyebrow">Topic</p><h1>{{ .Title }}</h1>{{ with $topic.description }}<p>{{ . }}</p>{{ end }}</header>
+<section aria-labelledby="latest-articles"><h2 id="latest-articles" class="section-title">Latest articles</h2>
+  {{ $pages := where .Pages "Section" "articles" }}{{ $paginator := .Paginate $pages.ByDate.Reverse }}
+  {{ if $paginator.Pages }}<div class="writing-list">{{ range $paginator.Pages }}{{ partial "article-list-item.html" . }}{{ end }}</div>{{ else }}<p class="empty-note">No articles in this topic yet.</p>{{ end }}
+  {{ if gt $paginator.TotalPages 1 }}<nav class="pagination" aria-label="Pagination">{{ with $paginator.Prev }}<a href="{{ .URL }}">← Newer</a>{{ end }}{{ with $paginator.Next }}<a href="{{ .URL }}">Older →</a>{{ end }}</nav>{{ end }}
+</section>
+{{ end }}

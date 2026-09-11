@@ -1,0 +1,8 @@
+{{- $citation := .Page.Params.citation -}}{{- $bibtex := .Page.Params.bibtex -}}
+{{- if or $citation $bibtex }}
+<section class="citation-block" aria-labelledby="citation-title">
+  <div class="citation-heading"><h2 id="citation-title">Cite this article</h2><button type="button" data-copy-citation aria-live="polite">Copy citation</button></div>
+  {{ with $citation }}<p class="citation-text">{{ . }}</p>{{ end }}
+  {{ with $bibtex }}<details><summary>BibTeX</summary><pre><code>{{ . }}</code></pre></details>{{ end }}
+</section>
+{{- end }}

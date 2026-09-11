@@ -1,0 +1,15 @@
+{{- $index := slice -}}
+{{- range site.RegularPages -}}
+  {{- if and (not .Params.searchHidden) (in (slice "articles" "books") .Section) -}}
+    {{- $topics := slice -}}{{- range .GetTerms "topics" -}}{{- $topics = $topics | append .LinkTitle -}}{{- end -}}
+    {{- $index = $index | append (dict "title" .Title "content" .Plain "permalink" .Permalink "summary" (.Description | default .Summary) "topics" $topics "kind" (.Params.articleType | default .Params.role | default .Section)) -}}
+  {{- end -}}
+{{- end -}}
+{{- with site.Taxonomies.topics -}}
+  {{- range .Alphabetical -}}
+    {{- with site.GetPage (printf "/topics/%s" (.Name | urlize)) -}}
+      {{- $index = $index | append (dict "title" .LinkTitle "content" "" "permalink" .Permalink "summary" "Browse writing in this topic." "topics" (slice .LinkTitle) "kind" "topic") -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $index | jsonify -}}

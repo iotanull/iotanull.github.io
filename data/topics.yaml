@@ -1,0 +1,15 @@
+mathematics:
+  title: "Mathematics"
+  primary: true
+  description: "Writing concerned with mathematical structures, ideas, and methods."
+physics:
+  title: "Physics"
+  primary: true
+  description: "Writing about physical theories, models, and the structure of the natural world."
+philosophy-of-science:
+  title: "Philosophy of Science"
+  primary: true
+  description: "Writing about scientific explanation, evidence, and the interpretation of theories."
+geometry:
+  title: "Geometry"
+  description: "Notes and essays involving space, form, and geometric structure."

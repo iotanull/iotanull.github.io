@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ $kind := .Params.articleType | default "general" }}
+<article class="article article-{{ $kind }}">
+  <header class="article-header">
+    <p class="eyebrow">{{ $kind | title }}{{ with first 1 (.GetTerms "topics") }} <span aria-hidden="true">·</span> <a href="{{ (index . 0).RelPermalink }}">{{ (index . 0).LinkTitle }}</a>{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.dek }}<p class="article-dek">{{ . }}</p>{{ else }}{{ with .Description }}<p class="article-dek">{{ . }}</p>{{ end }}{{ end }}
+    <p class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time> <span aria-hidden="true">·</span> {{ .ReadingTime }} min read</p>
+    {{ partial "article-topics.html" . }}
+  </header>
+  {{ if and (eq $kind "general") .Params.cover.image }}
+    {{ $hero := .Resources.GetMatch .Params.cover.image }}
+    {{ with $hero }}<figure class="article-hero"><img src="{{ .RelPermalink }}" alt="{{ $.Params.cover.alt }}" width="{{ .Width }}" height="{{ .Height }}" fetchpriority="high">{{ with $.Params.cover.caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+  {{ end }}
+  {{ if eq $kind "specialized" }}
+    {{ with .Params.abstract }}<section class="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p>{{ . }}</p></section>{{ end }}
+    <div class="technical-layout">
+      {{ if and .Params.toc (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") }}<aside class="technical-toc"><details open><summary>Contents</summary>{{ .TableOfContents }}</details></aside>{{ end }}
+      <div class="article-content md-content">{{ partial "anchored_headings.html" .Content }}</div>
+    </div>
+  {{ else }}
+    <div class="article-content general-content md-content">{{ partial "anchored_headings.html" .Content }}</div>
+  {{ end }}
+  <footer class="article-footer">{{ partial "article-topics.html" . }}</footer>
+</article>
+{{ end }}

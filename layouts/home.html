@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="home-intro" aria-labelledby="home-title">
+  <p class="eyebrow">{{ site.Title }}</p>
+  <h1 id="home-title">{{ site.Params.description }}</h1>
+  <p class="home-paths"><a href="{{ "/articles/" | relURL }}">Articles</a> <span aria-hidden="true">·</span> <a href="{{ "/books/" | relURL }}">Books</a> <span aria-hidden="true">·</span> <a href="{{ "/art/" | relURL }}">Art</a></p>
+</section>
+<section class="recent-writing" aria-labelledby="recent-title">
+  <div class="section-heading-row"><h2 id="recent-title">Recent writing</h2><a href="{{ "/archive/" | relURL }}">Full archive →</a></div>
+  {{ $pages := where site.RegularPages "Section" "articles" }}
+  {{ $pages = where $pages "Params.articleType" "in" (slice "specialized" "general") }}
+  {{ $paginator := .Paginate $pages }}
+  <div class="writing-list">{{ range $paginator.Pages }}{{ partial "article-list-item.html" . }}{{ end }}</div>
+  {{ if gt $paginator.TotalPages 1 }}<nav class="pagination" aria-label="Pagination">{{ with $paginator.Prev }}<a href="{{ .URL }}">← Newer</a>{{ end }}{{ with $paginator.Next }}<a href="{{ .URL }}">Older →</a>{{ end }}</nav>{{ end }}
+</section>
+{{ end }}

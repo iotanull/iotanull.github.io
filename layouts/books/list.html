@@ -1,0 +1,11 @@
+{{ define "main" }}
+<header class="page-intro"><p class="eyebrow">Library</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>
+{{ $books := where .RegularPages "Params.role" "original" }}
+<section class="book-section" aria-labelledby="original-works"><h2 id="original-works">Original Works</h2>
+  {{ if $books }}<div class="book-list">{{ range $books.ByDate.Reverse }}{{ partial "book-row.html" . }}{{ end }}</div>{{ else }}<p class="empty-note">No original works have been added yet.</p>{{ end }}
+</section>
+{{ $translations := where .RegularPages "Params.role" "translation" }}
+<section class="book-section" aria-labelledby="translations"><h2 id="translations">Translations</h2>
+  {{ if $translations }}<div class="book-list">{{ range $translations.ByDate.Reverse }}{{ partial "book-row.html" . }}{{ end }}</div>{{ else }}<p class="empty-note">No translations have been added yet.</p>{{ end }}
+</section>
+{{ end }}

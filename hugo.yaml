@@ -1,0 +1,99 @@
+baseURL: "https://iotanull.github.io/"
+locale: "en-US"
+defaultContentLanguage: "en"
+title: "IO"
+theme: "PaperMod"
+enableRobotsTXT: true
+enableGitInfo: false
+canonifyURLs: false
+relativeURLs: false
+
+pagination:
+  pagerSize: 12
+
+permalinks:
+  page:
+    articles: "/articles/:slug/"
+    books: "/books/:slug/"
+
+taxonomies:
+  topic: "topics"
+
+outputs:
+  home: [HTML, RSS, JSON]
+  section: [HTML, RSS]
+  taxonomy: [HTML, RSS]
+  term: [HTML, RSS]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
+
+minify:
+  minifyOutput: true
+
+params:
+  env: "production"
+  author: "IO"
+  description: "Writing on mathematics, physics, and the philosophy of science."
+  portfolioURL: ""
+  githubURL: "https://github.com/iotanull"
+  socialImage: ""
+  defaultTheme: "auto"
+  disableThemeToggle: false
+  disableScrollToTop: false
+  mainSections: [articles]
+  ShowReadingTime: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: true
+  UseHugoToc: true
+  ShowPostNavLinks: true
+  ShowRssButtonInSectionTermList: false
+  disableSpecial1stPost: true
+  assets:
+    favicon: "/favicon.svg"
+    favicon16x16: "/favicon.svg"
+    favicon32x32: "/favicon.svg"
+    apple_touch_icon: "/favicon.svg"
+    safari_pinned_tab: "/favicon.svg"
+    theme_color: "#fdfdfc"
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.3
+    minMatchCharLength: 2
+    keys: [title, summary, content, topics, kind]
+    limit: 12
+
+menu:
+  main:
+    - {name: "Articles", url: "/articles/", weight: 10}
+    - {name: "Books", url: "/books/", weight: 20}
+    - {name: "Art", url: "/art/", weight: 30}
+    - {name: "Archive", url: "/archive/", weight: 40}
+    - {name: "Topics", url: "/topics/", weight: 50}
+    - {name: "Search", url: "/search/", weight: 60}
+
+privacy:
+  x:
+    enableDNT: true
+    simple: true
+  youtube:
+    privacyEnhanced: true
+
+services:
+  rss:
+    limit: 20

@@ -1,0 +1,14 @@
+<article class="book-row">
+  <a class="book-cover" href="{{ .RelPermalink }}" aria-label="View {{ .Title }}">
+    {{ $cover := false }}{{ with .Params.cover }}{{ $cover = $.Resources.GetMatch . }}{{ end }}
+    {{ with $cover }}<img src="{{ .RelPermalink }}" alt="Cover of {{ $.Title }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">{{ else }}<span class="cover-placeholder" aria-hidden="true"><span>{{ substr .Title 0 1 }}</span></span>{{ end }}
+  </a>
+  <div class="book-row-copy">
+    <p class="eyebrow">{{ if eq .Params.role "translation" }}Translation{{ else }}Original work{{ end }}</p>
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ with .Params.originalTitle }}<p class="original-title">Original title: <cite>{{ . }}</cite></p>{{ end }}
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    <p class="book-meta">{{ with .Params.publisher }}{{ . }}{{ end }}{{ with .Date }}{{ if $.Params.publisher }} <span aria-hidden="true">·</span> {{ end }}{{ .Year }}{{ end }}{{ with .Params.pages }} <span aria-hidden="true">·</span> {{ . }} pages{{ end }}</p>
+    <p class="book-actions"><a href="{{ .RelPermalink }}">View book</a>{{ with .Params.pdf }} <span aria-hidden="true">·</span> <a href="{{ . | relURL }}" download>Download PDF</a>{{ end }}</p>
+  </div>
+</article>

@@ -1,0 +1,8 @@
+{{- $src := .Get "src" -}}{{- $alt := .Get "alt" -}}{{- $caption := .Get "caption" -}}{{- $credit := .Get "credit" -}}
+{{- if not $src }}{{ errorf "figure shortcode requires src for %s" .Page.File.Path }}{{ end -}}
+{{- if not $alt }}{{ errorf "figure shortcode requires alt text for %s" .Page.File.Path }}{{ end -}}
+<figure class="article-figure">
+  {{ $image := .Page.Resources.GetMatch $src }}
+  {{ with $image }}<img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">{{ else }}<img src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy">{{ end }}
+  {{ if or $caption $credit }}<figcaption>{{ with $caption }}{{ . | markdownify }}{{ end }}{{ with $credit }} <span class="figure-credit">{{ . }}</span>{{ end }}</figcaption>{{ end }}
+</figure>
