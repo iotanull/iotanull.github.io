@@ -1,5 +1,5 @@
 {{ define "main" }}
-<header class="page-intro"><p class="eyebrow">Directory</p><h1>{{ .Title }}</h1><p>Explore writing by subject.</p></header>
+<header class="page-intro"><h1>{{ .Title }}</h1><p>Explore writing by subject.</p></header>
 <section class="primary-topics" aria-labelledby="primary-subjects"><h2 id="primary-subjects">Primary subjects</h2><ul>
   {{ range $slug, $topic := hugo.Data.topics }}{{ if $topic.primary }}{{ with site.GetPage (printf "/topics/%s" $slug) }}<li><a href="{{ .RelPermalink }}">{{ $topic.title }}</a><span>{{ len (where .Pages "Section" "articles") }}</span></li>{{ end }}{{ end }}{{ end }}
 </ul></section>

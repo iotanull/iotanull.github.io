@@ -1,5 +1,5 @@
 {{ define "main" }}
-<header class="page-intro"><p class="eyebrow">Find</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>
+<header class="page-intro"><h1>{{ .Title }}</h1><p>{{ .Description }}</p></header>
 <div id="searchbox" class="search-panel">
   <label for="searchInput">Search query</label>
   <input id="searchInput" disabled placeholder="{{ .Params.placeholder }}" aria-describedby="search-status" type="search" autocomplete="off" maxlength="100">

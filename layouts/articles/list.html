@@ -1,6 +1,5 @@
 {{ define "main" }}
 <header class="page-intro">
-  <p class="eyebrow">Writing</p>
   <h1>{{ if .Params.articleFilter }}Articles{{ else }}{{ .Title }}{{ end }}</h1>
   <p>{{ if .Params.articleFilter }}{{ .Description }}{{ else }}Research notes and long-form essays on mathematics, physics, and the philosophy of science.{{ end }}</p>
 </header>

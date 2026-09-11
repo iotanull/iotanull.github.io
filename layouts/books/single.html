@@ -6,7 +6,6 @@
       {{ with $cover }}<img src="{{ .RelPermalink }}" alt="Cover of {{ $.Title }}" width="{{ .Width }}" height="{{ .Height }}">{{ else }}<span class="cover-placeholder" aria-hidden="true"><span>{{ substr .Title 0 1 }}</span></span>{{ end }}
     </div>
     <header class="book-detail-header">
-      <p class="eyebrow">{{ if eq .Params.role "translation" }}Translation{{ else }}Original work{{ end }}</p>
       <h1>{{ .Title }}</h1>
       {{ with .Params.originalTitle }}<p class="original-title">Original title: <cite>{{ . }}</cite></p>{{ end }}
       {{ if eq .Params.role "translation" }}

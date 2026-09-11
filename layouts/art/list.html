@@ -1,12 +1,11 @@
 {{ define "main" }}
-<header class="page-intro art-intro"><p class="eyebrow">Selected work</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p>
-{{ with site.Params.portfolioURL }}<p><a class="portfolio-link" href="{{ . }}">View full portfolio <span aria-hidden="true">↗</span></a></p>{{ else }}<p class="portfolio-pending">Full portfolio link can be added in site configuration.</p>{{ end }}
+<header class="page-intro art-intro"><h1>{{ .Title }}</h1><p>{{ .Description }}</p>
+{{ with site.Params.portfolioURL }}<p class="portfolio-line"><a class="portfolio-link" href="{{ . }}" rel="me noopener" target="_blank">View full portfolio on ArtStation <span aria-hidden="true">↗</span></a></p>{{ end }}
 </header>
 <div class="art-grid" role="list">
 {{ range $index, $work := hugo.Data.artworks }}
   <div role="listitem"><button class="art-thumb" type="button" data-art-index="{{ $index }}" data-title="{{ $work.title }}" data-year="{{ $work.year }}" data-medium="{{ $work.medium }}" data-image="{{ if $work.image }}{{ $work.image | relURL }}{{ end }}" aria-label="Open {{ $work.title }}">
     {{ if $work.thumb }}<img src="{{ $work.thumb | relURL }}" alt="{{ $work.title }}" loading="lazy">{{ else }}<span class="art-placeholder" aria-hidden="true"><span>{{ printf "%02d" (add $index 1) }}</span></span>{{ end }}
-    <span class="art-thumb-title">{{ $work.title }}</span>
   </button></div>
 {{ end }}
 </div>
