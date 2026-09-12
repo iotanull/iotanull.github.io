@@ -1,6 +1,7 @@
 {{ define "main" }}
 <section class="home-intro" aria-labelledby="home-title">
-  <h1 id="home-title">{{ site.Params.homeIntroduction }}</h1>
+  <h1 id="home-title">IO BLOG</h1>
+  <p class="home-tagline">{{ site.Params.homeIntroduction }}</p>
   <nav class="home-socials" aria-label="Social links">
     <a href="{{ site.Params.githubURL }}" aria-label="GitHub" rel="me noopener" target="_blank">
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 .8a11.4 11.4 0 0 0-3.6 22.2c.6.1.8-.3.8-.6v-2.2c-3.4.7-4.1-1.4-4.1-1.4-.5-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1.1.1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.2-3.2 4.4 4.4 0 0 1 .1-3.2s1-.3 3.3 1.2a11.2 11.2 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.4 4.4 0 0 1 .1 3.2 4.7 4.7 0 0 1 1.2 3.2c0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.4 11.4 0 0 0 12 .8Z"/></svg>
@@ -16,7 +17,7 @@
 <section class="recent-writing" aria-labelledby="recent-title">
   <div class="section-heading-row"><h2 id="recent-title">Recent writing</h2><a href="{{ "/archive/" | relURL }}">Full archive →</a></div>
   {{ $pages := where site.RegularPages "Section" "articles" }}
-  {{ $pages = where $pages "Params.articleType" "in" (slice "specialized" "general") }}
+  {{ $pages = where $pages "Params.articleType" "general" }}
   {{ $paginator := .Paginate $pages }}
   <div class="writing-list">{{ range $paginator.Pages }}{{ partial "article-list-item.html" . }}{{ end }}</div>
   {{ if gt $paginator.TotalPages 1 }}<nav class="pagination" aria-label="Pagination">{{ with $paginator.Prev }}<a href="{{ .URL }}">← Newer</a>{{ end }}{{ with $paginator.Next }}<a href="{{ .URL }}">Older →</a>{{ end }}</nav>{{ end }}

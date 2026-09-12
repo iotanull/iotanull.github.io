@@ -1,16 +1,10 @@
 {{ define "main" }}
 <header class="page-intro">
-  <h1>{{ if .Params.articleFilter }}Articles{{ else }}{{ .Title }}{{ end }}</h1>
-  <p>{{ if .Params.articleFilter }}{{ .Description }}{{ else }}Research notes and long-form essays on mathematics, physics, and the philosophy of science.{{ end }}</p>
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Description }}</p>
 </header>
-<nav class="article-filters" aria-label="Article type">
-  <a href="{{ "/articles/" | relURL }}"{{ if not .Params.articleFilter }} aria-current="page"{{ end }}>All</a>
-  <a href="{{ "/articles/specialized/" | relURL }}"{{ if eq .Params.articleFilter "specialized" }} aria-current="page"{{ end }}>Specialized</a>
-  <a href="{{ "/articles/general/" | relURL }}"{{ if eq .Params.articleFilter "general" }} aria-current="page"{{ end }}>General</a>
-</nav>
 {{ $pages := where site.RegularPages "Section" "articles" }}
-{{ $pages = where $pages "Params.articleType" "in" (slice "specialized" "general") }}
-{{ with .Params.articleFilter }}{{ $pages = where $pages "Params.articleType" . }}{{ end }}
+{{ $pages = where $pages "Params.articleType" "general" }}
 {{ $paginator := .Paginate $pages.ByDate.Reverse }}
 <div class="writing-list">{{ range $paginator.Pages }}{{ partial "article-list-item.html" . }}{{ end }}</div>
 {{ if gt $paginator.TotalPages 1 }}<nav class="pagination" aria-label="Pagination">{{ with $paginator.Prev }}<a href="{{ .URL }}">← Newer</a>{{ end }}{{ with $paginator.Next }}<a href="{{ .URL }}">Older →</a>{{ end }}</nav>{{ end }}

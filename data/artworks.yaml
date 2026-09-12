@@ -1,16 +1,16 @@
-- {id: "art-01", title: "Artwork Placeholder 01", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-02", title: "Artwork Placeholder 02", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-03", title: "Artwork Placeholder 03", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-04", title: "Artwork Placeholder 04", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-05", title: "Artwork Placeholder 05", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-06", title: "Artwork Placeholder 06", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-07", title: "Artwork Placeholder 07", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-08", title: "Artwork Placeholder 08", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-09", title: "Artwork Placeholder 09", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-10", title: "Artwork Placeholder 10", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-11", title: "Artwork Placeholder 11", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-12", title: "Artwork Placeholder 12", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-13", title: "Artwork Placeholder 13", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-14", title: "Artwork Placeholder 14", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-15", title: "Artwork Placeholder 15", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
-- {id: "art-16", title: "Artwork Placeholder 16", year: "", medium: "Replace with artwork metadata", image: "", thumb: ""}
+- {id: "a-future-remembered", title: "A Future Remembered", image: "/art/work/A Future Remembered.png", thumb: "/art/work/A Future Remembered - TN.png"}
+- {id: "ashborn", title: "Ashborn", image: "/art/work/Ashborn.png", thumb: "/art/work/Ashborn - TN.png"}
+- {id: "emergence", title: "Emergence", image: "/art/work/Emergence.png", thumb: "/art/work/Emergence - TN.png"}
+- {id: "fables-of-the-newborn-earth", title: "Fables of the Newborn Earth", image: "/art/work/Fables of the Newborn Earth.png", thumb: "/art/work/Fables of the Newborn Earth - TN.png"}
+- {id: "falling-into-the-abyss", title: "Falling into the Abyss", image: "/art/work/Falling into the abyss.png", thumb: "/art/work/Falling into the abyss - TN.png"}
+- {id: "farsand", title: "Farsand", image: "/art/work/Farsand.png", thumb: "/art/work/Farsand - TN.png"}
+- {id: "iceworld-outpost", title: "Iceworld Outpost", image: "/art/work/Iceworld Outpost.png", thumb: "/art/work/Iceworld Outpost - TN.png"}
+- {id: "last-ridge", title: "Last Ridge", image: "/art/work/Last Ridge.png", thumb: "/art/work/Last Ridge - TN.png"}
+- {id: "low-sun", title: "Low Sun", image: "/art/work/Low Sun.png", thumb: "/art/work/Low Sun - TN.png"}
+- {id: "no-return", title: "No Return", image: "/art/work/No Return.png", thumb: "/art/work/No Return - TN.png"}
+- {id: "on-the-edges", title: "On The Edges", image: "/art/work/On The Edges.png", thumb: "/art/work/On The Edges - TN.png"}
+- {id: "path-of-the-skyborn", title: "Path of the Skyborn", image: "/art/work/Path of the Skyborn.png", thumb: "/art/work/Path of the Skyborn - TN.png"}
+- {id: "steps-beyond-the-rift", title: "Steps Beyond the Rift", image: "/art/work/Steps Beyond the Rift.png", thumb: "/art/work/Steps Beyond the Rift - TN.png"}
+- {id: "sunset-on-the-verge", title: "Sunset on the Verge", image: "/art/work/Sunset on the Verge.png", thumb: "/art/work/Sunset on the Verge - TN.png"}
+- {id: "the-edge-of-hope", title: "The Edge of Hope", image: "/art/work/The Edge of Hope.png", thumb: "/art/work/The Edge of Hope - TN.png"}
+- {id: "the-mountain-against-us", title: "The Mountain Against Us", image: "/art/work/The Mountain Against Us -1.png", thumb: "/art/work/The Mountain Against Us - TN.png"}

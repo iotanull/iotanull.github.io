@@ -1,4 +1,4 @@
 ---
 title: "Books"
-description: "Original works and translations."
+description: "Persian translations of books on science, history, and ideas."
 ---

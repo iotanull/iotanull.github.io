@@ -103,7 +103,8 @@ h4 { font-size: 1.0625rem; }
 .section-title { max-width: var(--read-width); margin: 0 0 1.5rem; font-size: 1rem; font-family: var(--font-sans); letter-spacing: 0; text-transform: none; }
 
 .home-intro { max-width: 43rem; padding: 0 0 2rem; }
-.home-intro h1 { max-width: 43rem; margin: 0; font-size: 1.0625rem; font-weight: 400; line-height: 1.72; letter-spacing: 0; text-wrap: pretty; }
+.home-intro h1 { margin: 0; font-size: clamp(2.15rem, 6vw, 3.5rem); font-weight: 700; line-height: 1; letter-spacing: -.055em; }
+.home-tagline { max-width: 43rem; margin: 1rem 0 0; color: var(--secondary); font-size: 1.0625rem; line-height: 1.72; text-wrap: pretty; }
 .home-socials { display: flex; align-items: center; gap: .9rem; margin-top: .9rem; }
 .home-socials a { width: 32px; height: 32px; display: grid; place-items: center; color: var(--secondary); }
 .home-socials a:hover { color: var(--primary); }

@@ -2,7 +2,7 @@
 <article class="book-detail">
   <div class="book-detail-grid">
     <div class="book-detail-cover">
-      {{ $cover := false }}{{ with .Params.cover }}{{ $cover = $.Resources.GetMatch . }}{{ end }}
+      {{ $cover := false }}{{ with .Params.cover.image }}{{ $cover = $.Resources.GetMatch . }}{{ end }}
       {{ with $cover }}<img src="{{ .RelPermalink }}" alt="Cover of {{ $.Title }}" width="{{ .Width }}" height="{{ .Height }}">{{ else }}<span class="cover-placeholder" aria-hidden="true"><span>{{ substr .Title 0 1 }}</span></span>{{ end }}
     </div>
     <header class="book-detail-header">
@@ -10,7 +10,8 @@
       {{ with .Params.originalTitle }}<p class="original-title">Original title: <cite>{{ . }}</cite></p>{{ end }}
       {{ if eq .Params.role "translation" }}
         {{ with .Params.author }}<p>By {{ . }}</p>{{ end }}
-        {{ with .Params.translator }}<p>Translated by {{ . }}</p>{{ end }}
+        {{ with .Params.sourceTranslator }}<p>English translation by {{ . }}</p>{{ end }}
+        {{ with .Params.translator }}<p>Translated into Persian by {{ . }}</p>{{ end }}
       {{ else }}{{ with .Params.author }}<p>By {{ . }}</p>{{ end }}{{ end }}
       <dl class="book-facts">
         {{ with .Params.publisher }}<div><dt>Publisher</dt><dd>{{ . }}</dd></div>{{ end }}
@@ -20,7 +21,7 @@
         {{ with .Params.language }}<div><dt>Language</dt><dd>{{ . }}</dd></div>{{ end }}
         {{ with .Params.originalLanguage }}<div><dt>Original language</dt><dd>{{ . }}</dd></div>{{ end }}
       </dl>
-      {{ with .Params.pdf }}<a class="text-button" href="{{ . | relURL }}" download>Download PDF</a>{{ end }}
+      {{ with .Params.pdf }}{{ $pdf := $.Resources.GetMatch . }}{{ with $pdf }}<a class="text-button" href="{{ .RelPermalink }}" download>Download PDF</a>{{ end }}{{ end }}
     </header>
   </div>
   <div class="book-body md-content">{{ partial "anchored_headings.html" .Content }}</div>

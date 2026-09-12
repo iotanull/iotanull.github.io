@@ -46,7 +46,7 @@ params:
   env: "production"
   author: "IO"
   description: "Writing on mathematics, physics, and the philosophy of science."
-  homeIntroduction: "I use this site to collect notes, ideas, and things I’m learning across mathematics, physics, and philosophy of science."
+  homeIntroduction: "I use this site to collect notes, ideas, and things I learn."
   portfolioURL: "https://iotanull.artstation.com/"
   githubURL: "https://github.com/iotanull"
   socialImage: ""
