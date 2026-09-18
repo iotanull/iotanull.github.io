@@ -4,16 +4,16 @@
   <p class="home-tagline">{{ site.Params.homeIntroduction }}</p>
   <nav class="home-socials" aria-label="Social links">
     <a href="{{ site.Params.githubURL }}" aria-label="GitHub" rel="me noopener" target="_blank">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 .8a11.4 11.4 0 0 0-3.6 22.2c.6.1.8-.3.8-.6v-2.2c-3.4.7-4.1-1.4-4.1-1.4-.5-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1.1.1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.2-3.2 4.4 4.4 0 0 1 .1-3.2s1-.3 3.3 1.2a11.2 11.2 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.4 4.4 0 0 1 .1 3.2 4.7 4.7 0 0 1 1.2 3.2c0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.4 11.4 0 0 0 12 .8Z"/></svg>
+      <span class="social-icon"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .8a11.4 11.4 0 0 0-3.6 22.2c.6.1.8-.3.8-.6v-2.2c-3.4.7-4.1-1.4-4.1-1.4-.5-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1.1.1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.2-3.2 4.4 4.4 0 0 1 .1-3.2s1-.3 3.3 1.2a11.2 11.2 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.4 4.4 0 0 1 .1 3.2 4.7 4.7 0 0 1 1.2 3.2c0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.4 11.4 0 0 0 12 .8Z"/></svg></span>
     </a>
     <a href="mailto:iotamail@protonmail.com" aria-label="Email" title="Email">
-      <svg class="social-icon-stroke" aria-hidden="true" viewBox="0 0 24 24"><path d="M3.5 6.5h17v11h-17z"/><path d="m4 7 8 6 8-6"/></svg>
+      <span class="social-icon">{{- with resources.Get "icons/email.svg" }}{{ .Content | safeHTML }}{{ end }}</span>
     </a>
     <a href="{{ site.Params.portfolioURL }}" aria-label="ArtStation" rel="me noopener" target="_blank">
-      {{- with resources.Get "icons/artstation.svg" }}{{ .Content | safeHTML }}{{ end }}
+      <span class="social-icon">{{- with resources.Get "icons/artstation.svg" }}{{ .Content | safeHTML }}{{ end }}</span>
     </a>
     <a href="{{ "index.xml" | relURL }}" aria-label="RSS feed">
-      <svg class="social-icon-stroke" aria-hidden="true" viewBox="0 0 24 24"><circle cx="5" cy="19" r="1.8"/><path d="M3.5 10.5a10 10 0 0 1 10 10M3.5 4a16.5 16.5 0 0 1 16.5 16.5"/></svg>
+      <span class="social-icon">{{- with resources.Get "icons/rss.svg" }}{{ .Content | safeHTML }}{{ end }}</span>
     </a>
   </nav>
 </section>
