@@ -60,11 +60,11 @@ params:
   ShowRssButtonInSectionTermList: false
   disableSpecial1stPost: true
   assets:
-    favicon: "/favicon.svg"
-    favicon16x16: "/favicon.svg"
-    favicon32x32: "/favicon.svg"
-    apple_touch_icon: "/favicon.svg"
-    safari_pinned_tab: "/favicon.svg"
+    favicon: "/facicon.svg"
+    favicon16x16: "/facicon.svg"
+    favicon32x32: "/facicon.svg"
+    apple_touch_icon: "/facicon.svg"
+    safari_pinned_tab: "/facicon.svg"
     theme_color: "#fdfdfc"
   fuseOpts:
     isCaseSensitive: false

@@ -1,7 +1,6 @@
 const dialog = document.getElementById('art-lightbox');
 const thumbs = [...document.querySelectorAll('.art-thumb')];
 const image = dialog?.querySelector('.lightbox-image');
-const placeholder = dialog?.querySelector('.lightbox-placeholder');
 const title = dialog?.querySelector('#lightbox-title');
 const details = dialog?.querySelector('.lightbox-caption p');
 const closeButton = dialog?.querySelector('.lightbox-close');
@@ -15,20 +14,16 @@ const render = (index) => {
   current = (index + thumbs.length) % thumbs.length;
   const thumb = thumbs[current];
   const src = thumb.dataset.image;
-  const number = String(current + 1).padStart(2, '0');
   title.textContent = thumb.dataset.title || '';
   details.textContent = [thumb.dataset.year, thumb.dataset.medium].filter(Boolean).join(' · ');
-  placeholder.querySelector('span').textContent = number;
   if (src && !src.endsWith('/')) {
     image.src = src;
     image.alt = thumb.dataset.title || 'Artwork';
     image.hidden = false;
-    placeholder.hidden = true;
   } else {
     image.removeAttribute('src');
     image.alt = '';
     image.hidden = true;
-    placeholder.hidden = false;
   }
 };
 
